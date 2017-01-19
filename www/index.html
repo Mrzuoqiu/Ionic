@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--<script src="cordova.js"></script>-->
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="lyy">
+  <!--<ion-header-bar class="assertive-bg" align-title="center" no-tap-scroll="true">-->
+    <!--<p class="title">我的标题</p>-->
+  <!--</ion-header-bar>-->
+
+  <!--<ion-content ng-controller="listCtrl" overflow-scroll="false">-->
+    <!--&lt;!&ndash;<ul class="list">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="item" ng-repeat="item in items">{{item}}</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+    <!--<br>-->
+    <!--<ion-pane>面板的内容</ion-pane>-->
+  <!--</ion-content>-->
+  <!--<ion-footer-bar class="calm-bg" align-title="center">-->
+    <!--<p class="title">我是页脚</p>-->
+  <!--</ion-footer-bar>-->
+
+  <!--<ion-header-bar align-title="center" class="bar-assertive">-->
+    <!--<h1 class="title">下拉刷新效果</h1>-->
+  <!--</ion-header-bar>-->
+  <!--<ion-content ng-controller="resh">-->
+    <!--<ion-refresher pulling-text="正在进行滚动刷新,请等候" on-refresh="doRefresh()"></ion-refresher>-->
+    <!--<ul class="list">-->
+      <!--<li class="item" ng-repeat="item in items">{{item}}</li>-->
+    <!--</ul>-->
+  <!--</ion-content>-->
+
+  <!--<ion-header-bar align-title="center" class="bar-assertive">-->
+    <!--<h1 class="title">上滑刷新效果</h1>-->
+  <!--</ion-header-bar>-->
+  <!--<ion-content ng-controller="scrollCtrl">-->
+
+    <!--<ul class="list">-->
+      <!--<li class="item" ng-repeat="item in items">{{item}}</li>-->
+    <!--</ul>-->
+    <!--<ion-infinite-scroll on-infinite="more()"></ion-infinite-scroll>-->
+  <!--</ion-content>-->
+
+  <!--//tab切换-->
+  <!--<ion-header-bar align-title="center" class="balanced">-->
+    <!--<h1 class="title">tab切换</h1>-->
+  <!--</ion-header-bar>-->
+  <!--<ion-tabs ng-controller="tabCtrl" class="tabs-striped tabs-top tabs-icon-top">-->
+    <!--<ion-tab on-select="do()" title="国内新闻" icon-off="ion-home" icon-on="ion-home assertive">-->
+      <!--<ion-view>-->
+        <!--<ion-content>-->
+          <!--1-->
+        <!--</ion-content>-->
+      <!--</ion-view>-->
+    <!--</ion-tab>-->
+    <!--&lt;!&ndash;hidden="true"&ndash;&gt;-->
+    <!--<ion-tab title="国际新闻" icon-off="ion-help" icon-on="ion-help assertive">-->
+      <!--<ion-view>-->
+        <!--<ion-content>-->
+          <!--2-->
+        <!--</ion-content>-->
+      <!--</ion-view>-->
+    <!--</ion-tab>-->
+    <!--<ion-tab disabled="true" title="本地新闻" icon-off="ion-gear-a" icon-on="ion-gear-a assertive">-->
+      <!--<ion-view>-->
+        <!--<ion-content>-->
+          <!--3-->
+        <!--</ion-content>-->
+      <!--</ion-view>-->
+    <!--</ion-tab>-->
+  <!--</ion-tabs>-->
+
+  <!--列表-->
+  <!--<div ng-controller="allCtrl">-->
+  <!--<ion-header-bar align-title="center" class="bar-positive">-->
+    <!--<div class="buttons">-->
+      <!--<button ng-click="data.showDelete = !data.showDelete;data.showReorder=false" class="button button-icon icon ion-ios-minus-outline"></button>-->
+    <!--</div>-->
+    <!--<h1 class="title">列表的删除,排序和编辑</h1>-->
+    <!--<div class="buttons">-->
+      <!--<button ng-click="data.showReorder = !data.showReorder;data.showDelete=false" class="button button-icon icon ion-chevron-up"></button>-->
+    <!--</div>-->
+  <!--</ion-header-bar>-->
+  <!--<ion-content>-->
+    <!--<ion-list show-delete="data.showDelete" show-reorder="data.showReorder" can-swipe="true">-->
+      <!--<ion-item ng-repeat="item in items">-->
+        <!--{{item}}-->
+        <!--&lt;!&ndash;删除的按钮&ndash;&gt;-->
+        <!--<ion-delete-button ng-click="delete_item(item)" class="ion-minus-circled"></ion-delete-button>-->
+        <!--&lt;!&ndash;排序按钮&ndash;&gt;-->
+        <!--<ion-reorder-button class="ion-navicon" on-reorder="move_item(item, $fromIndex, $toIndex)"></ion-reorder-button>-->
+        <!--&lt;!&ndash;滑动&ndash;&gt;-->
+        <!--<ion-option-button ng-click="edit(item)" class="button-info button-assertive">编辑</ion-option-button>-->
+      <!--</ion-item>-->
+    <!--</ion-list>-->
+  <!--</ion-content>-->
+  <!--</div>-->
+
+
+  <!--侧边栏-->
+  <!--<ion-side-menus>-->
+    <!--<ion-side-menu-content>-->
+      <!--<ion-header-bar align-title="center" class="bar-dark">-->
+        <!--<button class="button" menu-toggle="left">切换</button>-->
+        <!--<h1 class="title">侧边栏的实例</h1>-->
+      <!--</ion-header-bar>-->
+      <!--<ion-content class="calm-bg light">我是内容区域</ion-content>-->
+    <!--</ion-side-menu-content>-->
+    <!--&lt;!&ndash;左滑的&ndash;&gt;-->
+    <!--<ion-side-menu side="left" class="balanced-bg">-->
+      <!--我是左滑动显示的内容-->
+    <!--</ion-side-menu>-->
+  <!--</ion-side-menus>-->
+
+
+  <!--幻灯片-->
+  <!--<div style="width: 100%;height:300px;overflow: hidden;">-->
+  <!--<ion-slide-box auto-play="true" dies-continue="true">-->
+    <!--<ion-slide>-->
+      <!--<img src="img/0.jpg" alt="" height="300"/>-->
+    <!--</ion-slide>-->
+    <!--<ion-slide>-->
+      <!--<img src="img/1.jpg" alt="" height="300"/>-->
+    <!--</ion-slide>-->
+    <!--<ion-slide>-->
+      <!--<img src="img/2.jpg" alt="" height="300"/>-->
+    <!--</ion-slide>-->
+    <!--<ion-slide>-->
+      <!--<img src="img/3.jpg" alt="" height="300"/>-->
+    <!--</ion-slide>-->
+  <!--</ion-slide-box>-->
+  <!--</div>-->
+
+
+  <!--单选框-->
+  <!--<ion-content ng-controller="radio">-->
+  <!--<div class="list">-->
+  <!--<div class="item item-divider">您的 选择是：{{ret.choices}}</div>-->
+  <!--<ion-radio ng-repeat="item in items" ng-model="ret.choices"-->
+  <!--ng-value="item">-->
+  <!--{{item}}-->
+  <!--</ion-radio>-->
+  <!--</div>-->
+  <!--</ion-content>-->
+
+
+   <!--复选-->
+  <!--<ion-content ng-controller="check">-->
+    <!--<ion-list>-->
+      <!--<ion-checkbox ng-repeat="item in items" ng-model="item.selected">-->
+        <!--{{item.label}}:{{item.selected}}-->
+      <!--</ion-checkbox>-->
+    <!--</ion-list>-->
+
+  <!--</ion-content>-->
+
+
+  <!--模态框-->
+  <!--<ion-content padding="true" ng-controller="modal">-->
+    <!--<button class="button button-block" ng-click="openModal()">打开模态框</button>-->
+  <!--</ion-content>-->
+
+  <!--<script id="my-modal.html" type="text/ng-template">-->
+    <!--<ion-modal-view>-->
+      <!--<ion-header-bar class="bar-energized">-->
+        <!--<h1 class="title">模态框的实例</h1>-->
+        <!--<a class="button" ng-click="closeModal()">关闭模态框</a>-->
+      <!--</ion-header-bar>-->
+      <!--<ion-content>hello!模态框</ion-content>-->
+    <!--</ion-modal-view>-->
+  <!--</script>-->
+
+
+  <!--上拉菜单-->
+  <!--<div ng-controller="slideup">-->
+    <!--<ion-header-bar class="bar-energized">-->
+      <!--<h1 class="title">上拉菜单</h1>-->
+      <!--<a class="button" ng-click="show()">上拉</a>-->
+    <!--</ion-header-bar>-->
+    <!--<ion-content>-->
+      <!--我是内容-->
+    <!--</ion-content>-->
+  <!--</div>-->
+
+  <!--弹出框-->
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">$ionicPopup弹出框服务</h1>
+  </ion-header-bar>
+  <ion-content class="has-header" padding="true" ng-controller="layerCtrl">
+    <a class="button button-block button-calm" ng-click="showPopup()">定制弹出框</a>
+    <a class="button button-block button-calm" ng-click="showConfirm()">确认弹出框</a>
+    <a class="button button-block button-calm" ng-click="showAlert()">警告弹出框</a>
+    <a class="button button-block button-calm" ng-click="showPrompt()">提示弹出框</a>
+  </ion-content>
+  <ion-footer-bar class="bar-positive">
+    <h1 class="title">{{status}}</h1>
+  </ion-footer-bar>
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
